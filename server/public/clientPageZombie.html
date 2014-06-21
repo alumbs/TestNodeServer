@@ -1,21 +1,23 @@
 <html>
 <head>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-var socket = io('http://localhost');
-  socket.on('news', function (data) {
-    console.log(data);
-	alert('News received: ' + data['news']);
-	var div = document.getElementById('myDiv');
-	div.innerHTML = data['news'];
-  });
-  socket.on('allClients', function (data) {
-    console.log(data);
-	alert('News received: ' + data['news']);
-	var div = document.getElementById('myDiv');
-	div.innerHTML = data['news'];
-  });
-</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		  var socket = io('http://localhost');
+		  
+		  socket.on('news', function (data) {
+			console.log(data);
+			alert('News received: ' + data['news']);
+			var div = document.getElementById('myDiv');
+			div.innerHTML = data['news'];
+		  });
+		  
+		  socket.on('allClients', function (data) {
+			console.log(data);
+			alert('News received: ' + data['news']);
+			var div = document.getElementById('myDiv');
+			div.innerHTML = data['news'];
+		  });
+	</script>
 </head>
 
 <body>

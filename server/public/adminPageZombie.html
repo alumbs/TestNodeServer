@@ -1,22 +1,22 @@
 <html>
 <head>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-var socket = io('http://localhost');
-  socket.on('news', function (data) {
-    console.log(data);
-	alert('News received: ' + data['news']);
-  });
-</script>
-<script>
-//var count = 1; 
-function sendMessageToAllClient()
-{
-	if(socket){
-		socket.emit('sendMessageToAllClient', {message: 'start a game in 5 seconds everyone'});
-	}
-}
-</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io('http://localhost');
+		
+		socket.on('news', function (data) {
+			console.log(data);
+			alert('News received: ' + data['news']);
+		});
+	</script>
+	<script>
+		function sendMessageToAllClient()
+		{
+			if(socket){
+				socket.emit('sendMessageToAllClient', {message: 'start a game in 5 seconds everyone'});
+			}
+		}
+	</script>
 </head>
 
 <body>

@@ -5,21 +5,11 @@ var ecstatic = require('ecstatic');
 
 var server = restify.createServer();
 var io = require('socket.io').listen(server);
-//var socket;
+
 server.pre(ecstatic({ root: __dirname + '/public'}));
 server.use(restify.queryParser());
 
 server.get("/initialize", function(request, response, next){
-	/*
-	if(socket)
-	{
-		console.log('initialize request received');
-		
-	}
-	else
-	{
-		console.log('socket not initialized');
-	}*/
 	response.writeHead(200, {});
 	response.write('I love you baby!');
 	response.end();
@@ -45,20 +35,13 @@ server.get("/katherinebaby", function(request, response, next){
 
 server.listen(8080);
 
-//open the socket to listen on port 8080
-//io.listen(8080);
-
 //whenever a socket connects...
 io.sockets.on('connection', function(sock){
 	console.log('socket connected');
 	if(sock)
 	{
-		//socket = sock;
 		sock.emit('news', { news: 'hello world' });
-		/*sock.on('my other event', function(data)
-		{	
-			console.log(data);
-		});*/
+		
 		sock.on('sendMessageToAllClient', function(data)
 		{
 			console.log('received message for all clients');
