@@ -1,0 +1,15 @@
+{
+  "name": "TestNodeServer",
+  "version": "1.0.0",
+  "description": "A test site for Natasha to show how we can send event notifications to all referees",
+  "main": "server/public/adminPageZombie.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chibuzor Alumba",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.4.4",
+    "socket.io": "^1.0.6"
+  }
+}
