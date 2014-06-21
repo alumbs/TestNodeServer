@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var count = 1; 
+function run()
+{
+var socket = io('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+  });
+  
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText + " " + count;
+	count++;
+    }
+}
+
+xmlhttp.open("GET","initialize",true);
+xmlhttp.send();
+}
+</script>
+</head>
+
+<body>
+<a href="javascript:run()">My hegg</a>
+<div id="myDiv"></div>
+</body>
+</html>
