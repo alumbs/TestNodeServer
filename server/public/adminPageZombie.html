@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+	alert('News received: ' + data['news']);
+  });
+</script>
+<script>
+//var count = 1; 
+function sendMessageToAllClient()
+{
+	if(socket){
+		socket.emit('sendMessageToAllClient', {message: 'start a game in 5 seconds everyone'});
+	}
+}
+</script>
+</head>
+
+<body>
+<a href="javascript:sendMessageToAllClient()" 
+	style="display: block; border: 10px solid #FF3399; font-size: 20px;
+		height:50px; text-decoration: none; color: #FF9900">
+Click here to tell everyone to start a game in 5 secs</a>
+</body>
+</html>

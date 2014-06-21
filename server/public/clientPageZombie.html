@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+	alert('News received: ' + data['news']);
+	var div = document.getElementById('myDiv');
+	div.innerHTML = data['news'];
+  });
+  socket.on('allClients', function (data) {
+    console.log(data);
+	alert('News received: ' + data['news']);
+	var div = document.getElementById('myDiv');
+	div.innerHTML = data['news'];
+  });
+</script>
+</head>
+
+<body>
+<h2>All messages from the server will show up below </h2>
+<div id="myDiv" style="border: 10px solid; font-size: 20px; 
+	display: block; height:50px; width:1000px;">Placeholder text</div>
+</body>
+</html>

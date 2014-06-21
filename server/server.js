@@ -61,8 +61,8 @@ io.sockets.on('connection', function(sock){
 		});*/
 		sock.on('sendMessageToAllClient', function(data)
 		{
-			console.log('reeived message for all clients');
-			io.sockets.emit('news', { news: data['message'] });
+			console.log('received message for all clients');
+			io.sockets.emit('allClients', { news: data['message'] });
 		});
 	}	
 	//send to all sockets but the new one
